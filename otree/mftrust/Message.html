@@ -1,0 +1,21 @@
+{{ block title }}Your Choice{{ endblock }}
+{{ block content }}
+    <p>
+        You have been assigned the role of the manager.
+        {{ if C.NUM_ROUNDS > 1 }}
+            This will be your role for the entire experiment. 
+        {{ endif }}
+        The role of the investor has been assigned to another participant.
+    </p>
+    <p>
+        If you want, you can send a message to the investor.
+        This is the only option for you to send a message.
+        If you do not want to send a message, you can leave the field blank.
+    </p>
+    <p>
+    {{ formfields }}
+    <p>
+    {{ next_button }}
+    </p>
+
+{{ endblock }}

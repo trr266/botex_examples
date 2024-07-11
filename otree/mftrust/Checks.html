@@ -1,0 +1,30 @@
+{{ block title }}Some Last Questions{{ endblock }}
+{{ block content }}
+    <p>
+        Thank you for participating! 
+        Before you go, we have a few last questions for you.
+    </p>
+    <p>
+        {{ formfield 'comprehension_check'}}
+        {{ formfield 'manipulation_check'}}            
+    </p>
+    <p>
+        Thank you! 
+        How well do the following four statements describe you as a person? 
+        {{ formfield 'altruism'}}
+        {{ formfield 'trust'}}
+        {{ formfield 'reciprocity'}}
+        {{ formfield 'negative_reciprocity'}}
+    </p>
+    <p>
+        Thank you! 
+        {{ formfield 'feedback'}}    
+    </p>
+    <p>
+        Thanks again! Please click on the 'Next' button below to receive your 
+        participant ID. You will need it to collect your prize in case you 
+        are the lucky person to win the Amazon voucher.
+    </p>
+    <p> {{ next_button }} <p></p>
+
+{{ endblock }}

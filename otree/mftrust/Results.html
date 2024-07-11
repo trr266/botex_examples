@@ -1,0 +1,70 @@
+{{ block title }}Results{{ endblock }}
+{{ block content }}
+    {{ if C.NUM_ROUNDS > 1 }}
+        <p>
+            You are in round {{ group.round_number }} of 
+            {{ C.NUM_ROUNDS }} rounds. 
+        </p>
+    {{ endif }}
+
+    {{ if player.id_in_group == 1 }}
+        <p>
+            {{ if C.NUM_ROUNDS > 1 }}
+                This round, you chose to invest 
+                {{ group.sent_amount }}.
+            {{ else }}
+                You chose to invest {{ group.sent_amount }}.
+            {{ endif }}
+            The manager returned {{ group.sent_back_amount }}. 
+            Your payoff thus is {{ C.ENDOWMENT }} - {{ group.sent_amount }} + 
+            {{ group.sent_back_amount }} = <strong>{{ player.payoff }}</strong>.
+        </p>
+        {{ if C.NUM_ROUNDS == 1 }}
+            <p>
+            In summary, you earned {{ p1_wealth }} and the manager earned {{ p2_wealth }}. 
+            </p>
+        {{ else }}
+            {{ if group.round_number == C.NUM_ROUNDS }}
+                <p>
+                    This was the last round. 
+                    The total number of points you earned in the {{ C.NUM_ROUNDS }} rounds combined is {{ p1_wealth }}.
+                    The total number of points the manager earned in the {{ C.NUM_ROUNDS }} rounds combined is {{ p2_wealth }}.
+                </p>
+            {{ else }}
+                <p>
+                    The total number of points you earned in the rounds so far is {{ p1_wealth }}.
+                    The total number of points the manager earned in the rounds so far is {{ p2_wealth }}.
+                </p>
+            {{ endif }}
+        {{ endif }}
+    {{ else }}
+        <p>
+            This round, the investor invested {{ group.sent_amount }}.
+            These points were multiplied by 3 so you received {{ tripled_amount }}.
+            You chose to return {{ group.sent_back_amount }} as a dividend.
+            Your payoff thus is {{ tripled_amount }} - {{ group.sent_back_amount }} = 
+            <strong>{{ player.payoff }}</strong>.
+        </p>
+        {{ if C.NUM_ROUNDS == 1 }}
+            <p>
+          In summary, you earned {{ p2_wealth }} and the investor earned {{ p1_wealth }}.
+            </p>
+        {{ else }}
+            {{ if group.round_number == C.NUM_ROUNDS }}
+                <p>
+                    This was the last round. 
+                    The total number of points you earned in the {{ C.NUM_ROUNDS }} rounds combined is {{ p2_wealth }}.
+                    The total number of points the investor earned in the {{ C.NUM_ROUNDS }} rounds combined is {{ p1_wealth }}.
+                </p>
+            {{ else }}
+                <p>
+                    The total number of points you earned in the rounds so far is {{ p2_wealth }}.
+                    The total number of points the investor earned in the rounds so far is {{ p1_wealth }}.
+                </p>
+            {{ endif }}
+        {{ endif }}
+    {{ endif }}
+
+    <p>{{ next_button }}</p>
+
+{{ endblock }}

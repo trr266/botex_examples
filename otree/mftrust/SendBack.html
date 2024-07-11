@@ -1,0 +1,34 @@
+{{ block title }}Your Choice{{ endblock }}
+{{ block content }}
+    {{ if group.round_number == 1 }}
+    <p>
+        You have been assigned the role of the manager. 
+        {{ if C.NUM_ROUNDS > 1 }}
+            This will be your role for the entire experiment. 
+        {{ endif }}
+        The role of the investor has been assigned to another participant.
+    </p>
+    {{ else }}
+    <p>
+        You are in round {{ group.round_number }} of {{ C.NUM_ROUNDS }} rounds.
+    </p>
+    {{ endif }}        
+    <p>
+        {{ if C.NUM_ROUNDS > 1 }}
+            This round, the investor
+        {{ else }}
+            The investor
+        {{ endif }}
+        invested {{ group.sent_amount }}.
+        {{ if group.sent_amount > 0 }}
+            This amount was multiplied by 3 so you now have {{ tripled_amount }}.
+            How many points do you want to send as a dividend to the investor?
+            </p>
+            <p>{{ formfields }}</p>
+        {{ else }}
+            Thus, you cannot send any points back to the investor as a dividend.
+            </p>
+        {{ endif }}
+    <p>{{ next_button }}</p>
+
+{{ endblock }}

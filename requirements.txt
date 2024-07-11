@@ -1,0 +1,4 @@
+jupyter
+python-dotenv
+tabulate
+scipy

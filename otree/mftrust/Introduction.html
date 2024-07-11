@@ -1,0 +1,50 @@
+{{ block title }}Instructions{{ endblock }}
+{{ block content }}
+
+<p>
+    This is an experiment on decision-making by managers and investors.
+    You have been randomly and anonymously paired with another participant.
+    The roles of manager and investors are randomly assigned to you and the 
+    other participant. 
+    You will learn your role prior to making any decision.
+</p>
+<p>
+    During the experiment, you and the other participant can earn points. 
+    The amount of points that you earned will determine the likelihood that 
+    you will win an 100€ Amazon voucher that will be raffled out among
+    what we plan to be about 100 participants in this experiment.
+</p>
+<p>
+    After the role assignment, the manager has the option 
+    to send a free form text message to the investor.
+    Only the manager can send a message and 
+    they can only send one message at the beginning of the experiment.
+</p>
+<p>
+    {{ if C.NUM_ROUNDS > 1 }}
+        This experiment lasts {{ C.NUM_ROUNDS }} rounds.
+    {{ endif }}
+    {{ if C.NUM_ROUNDS > 1 }} 
+        Each round, the investor
+    {{ else }} 
+        The investor
+    {{ endif }}
+    starts with an endowment of {{ C.ENDOWMENT }} and the manager starts with an endowment of 0 points.
+    The investor can invest none, some, or all of their endowment in the firm run by the manager.
+    Each point that the investor invests in the firm run by the manager is multiplied by 3.
+    The manager then needs to decide how much of this multiplied amount they send to the investor as a dividend.
+    Anything that the manager does not send to the investor, they can keep for themselves.  
+</p>
+<p>
+    <b>Example</b>:
+    Suppose that the investor chooses to invest 50 points. 
+    This amount is then multiplied by 3, such that the manager now 
+    has 150 points. Suppose the manager sends back 50 points to 
+    the investor. The payoff of the investor then is 100 points 
+    (100 - 50 + 50) and the payoff of the manager then is 100 points 
+    (0 + 150 - 50).
+</p>
+
+{{ next_button }}
+
+{{ endblock }}

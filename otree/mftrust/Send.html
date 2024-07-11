@@ -1,0 +1,40 @@
+{{ block title }}Your Choice{{ endblock }}
+{{ block content }}
+    {{ if group.round_number == 1 }}
+        <p>
+            You have been assigned the role of the investor.
+            {{ if C.NUM_ROUNDS > 1 }}
+                This will be your role for the entire experiment. 
+            {{ endif }}
+            The role of the manager has been assigned to another participant.
+            {{ if message_exists }}
+                The manager has sent you the following message: 
+                <br>
+                <br>
+                <i>{{ message }}</i>
+                <br>
+            {{ else }}
+                The manager has not sent you a message.
+            {{ endif }}
+        </p>
+    {{ else }}
+    <p>
+        You are in round {{ group.round_number }} of {{ C.NUM_ROUNDS }} rounds.
+    </p>
+    {{ endif }}    
+    <p>
+        {{ if C.NUM_ROUNDS > 1 }}
+            As in every round, you 
+        {{ else }} 
+            You 
+        {{ endif }}
+        have received an endowment of {{C.ENDOWMENT}}. 
+        How many points do you want to invest and send to the manager?
+    </p>
+
+    {{ formfields }}
+    <p>
+    {{ next_button }}
+    </p>
+
+{{ endblock }}
