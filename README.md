@@ -27,11 +27,10 @@ a virtual environment to avoid conflicts with other packages.
 
 ``` bash
 python3 -m venv venv
-source venv/bin/activate
+source venv/bin/activate # On Linux and Mac OS
 # venv\Scripts\activate.bat # If you are using Windows - command prompt
 # venv/Script/Activate.ps1 # If you are using Windows - PowerShell and have allowed script execution
-# this will change to pip install botex
-pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple botex==0.1.6
+pip install botex
 ```
 
 As we will be running a local oTree server in this walk-through, we
@@ -47,10 +46,8 @@ BTW: At least for uns, installing otree causes a warning about a
 dependency conflict for the MarkupSafe package. We did not yet recognize
 any issues with this, but if you do, please let us know.
 
-Finally, botex uses [Google Chrome](https://www.google.com/chrome/) and
-[ChromeDriver](https://developer.chrome.com/docs/chromedriver/get-started)
-to scrape oTree webpages. Instructions to install these components are
-contained in the links above.
+Finally, botex requires [Google Chrome](https://www.google.com/chrome/)
+to be installed to scrape oTree webpages.
 
 ### Configuration
 
