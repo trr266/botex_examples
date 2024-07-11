@@ -28,6 +28,8 @@ a virtual environment to avoid conflicts with other packages.
 ``` bash
 python3 -m venv venv
 source venv/bin/activate
+# venv\Scripts\activate.bat # If you are using Windows - command prompt
+# venv/Script/Activate.ps1 # If you are using Windows - PowerShell and have allowed script execution
 # this will change to pip install botex
 pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple botex==0.1.6
 ```
