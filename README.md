@@ -45,6 +45,11 @@ BTW: At least for uns, installing otree causes a warning about a
 dependency conflict for the MarkupSafe package. We did not yet recognize
 any issues with this, but if you do, please let us know.
 
+Finally, botex uses [Google Chrome](https://www.google.com/chrome/) and
+[ChromeDriver](https://developer.chrome.com/docs/chromedriver/get-started)
+to scrape oTree webpages. Instructions to install these components are
+contained in the links above.
+
 ### Configuration
 
 Copy the file `_secrets.env` to `secrets.env` and edit to your needs.
@@ -183,8 +188,8 @@ botex.run_bots_on_session(
 
 ### Take a look at the experimental results by using the botex data
 
-While in a real setting, you would most likely download the experiment’s
-data from otree and work from there. However, you can also use the
+In a real setting, you would most likely now download the experiment’s
+data from oTree and work from there. However, you can also use the
 response data from the botex directly for some quick test. From our
 paper we know that Chat-GPT 4o bots are very likely to invest 50 in the
 first round of a standard framed trust game (See Figure 4 of the paper).
@@ -226,7 +231,7 @@ It certainly points into a direction. Not bad for a n=5 study, right?
 
 ## Let me take a peak under the hood: the prompting level
 
-If you want to understand how the saussage is being made, it is ueful to
+If you want to understand how the sausage is being made, it is ueful to
 analyze the prompt level. See below for the prompting sequence that
 generated the bot responses in the human bot setting.
 

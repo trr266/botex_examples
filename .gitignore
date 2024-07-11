@@ -166,3 +166,4 @@ secrets.env
 *.Rproj
 .Rproj.user
 .DS_store
+.Rhistory
